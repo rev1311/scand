@@ -18,58 +18,59 @@
             <img class="img-fluid" src="assets/default.webp" alt="Luxury Leather Sofa" />
         </div>
         
-        <div class="product_titlecard">
-            <p class="productName">LEATHER SOFA</p>
-            <hr>
-            <p class="productPrice">$799.00</p>
-        </div>
-        
-        <div class="color_selector">
-            <p class="colorSelectText">Color</p>
-            <div class="color_swatch">
-                <div class="color1"></div>
-                <div class="color2"></div>
-                <div class="color3"></div>
-                <div class="color4"></div>
-                <div class="color5"></div>
+        <div class="panel">
+            <div class="product_titlecard">
+                <p class="productName">LEATHER SOFA</p>
+                <hr>
+                <p class="productPrice">$799.00</p>
             </div>
-            <div class="skuNumber">
-                <p>sku# here</p>
-            </div>
-            <hr>
-        </div>
-        
-        <div class="zip">
-            <p>Please enter your delivery zip code to check for availability.</p>
-            <form>
-                <label>
-                    Ship to:
-                </label>
-                <input placeholder="Enter Zip Code">
-            </form>
-        </div>
-        
-        <div class="qtybtn_card">
-            <div class="qtybtn">
-                <div class="qtybtn_dec">-</div>
-                <div class="qtybtn_qty">
-                    <input type="number" placeholder="0" />
+            
+            <div class="color_selector">
+                <p class="colorSelectText">Color</p>
+                <div class="color_swatch_panel">
+                    <span class="color_swatch color1" aria-label="color1"></span>
+                    <span class="color_swatch color2"></span>
+                    <span class="color_swatch color3"></span>
+                    <span class="color_swatch color4"></span>
+                    <span class="color_swatch color5"></span>
                 </div>
-                <div class="qtybtn_inc">+</div>
-                <button class="addToCart">ADD TO CART</button>
+                <div class="skuNumber">
+                    <p>sku# here</p>
+                </div>
+                <hr>
             </div>
+            
+            <div class="zip">
+                <p>Please enter your delivery zip code to check for availability.</p>
+                <form>
+                    <label>
+                        Ship to:
+                    </label>
+                    <input type="text" inputmode="numeric" placeholder="Enter Zip Code">
+                </form>
+            </div>
+            
+            <div class="qtybtn_card">
+                <div class="qtybtn">
+                    <span class="qtybtn_dec" onClick="dec(event, this)">-</span>
+                    <span class="qtybtn_qty">
+                        <input type="text" inputmode="numeric" placeholder="0" min="1"/>
+                    </span>
+                    <span class="qtybtn_inc" onClick="inc(event, this)">+</span>
+                    <button class="addToCart">ADD TO CART</button>
+                </div>
 
-            <div class="assembly">
-                <p>Some assembly may be required.</p>
+                <div class="assembly">
+                    <p>Some assembly may be required.</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="ship">
-            <p>*Shipping and delivery times may vary from estimates provided due to shipping method, location, product availability, and high demand.</p>
+            
+            <div class="ship">
+                <p>*Shipping and delivery times may vary from estimates provided due to shipping method, location, product availability, and high demand.</p>
+            </div>
         </div>
         
         <div class="details">details go here</div>
-
     </div>
     
     <script type="text/javascript" src="script.js"></script>
