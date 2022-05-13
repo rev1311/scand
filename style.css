@@ -1,76 +1,185 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(1fr, 5fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(1fr, auto);
+    gap: 0.2em;
     grid-template-areas: 
-        'img img price'
-        'img img color'
-        'img img zip'
-        'img img qty'
-        'img img ship'
+        'img img img price'
+        'img img img color'
+        'img img img zip'
+        'img img img qty'
+        'img img img ship'
+        'dtl dtl dtl dtl'
         ;
     line-height: 1.6;
-    max-width: 80vw;
+    max-width: 70vw;
     margin: 10vh auto;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
-.grid-item-1 {
+.img_hero {
     display: flex;
     grid-area: img;
     justify-content: center;
     align-items: center;
-    border: 2px solid aqua;
+    /* border: 2px solid aqua; */
 }
 
-.img-fluid {
+.img_hero .img-fluid {
     max-width: 80%;
     height: auto;
 }
 
-.grid-item-2 {
+.product_titlecard {
+    font-family: 'Montserrat', sans-serif;
     grid-area: price;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
 }
 
-.grid-item-3 {
-    display: flex;
+.product_titlecard .productName {
+    font-size: 24px;
+    padding: 10px 0px;
+}
+
+.product_titlecard .productPrice {
+    font-size: 28px;
+    padding: 10px 0px 0px;
+}
+
+.color_selector {
     grid-area: color;
-    border: 2px solid blueviolet;
+    /* border: 2px solid blueviolet; */
     align-items: center;
 }
 
-.grid-item-3 .color {
+.color_selector .colorSelectText {
+    font-size: 13px;
+    margin: 6.5px 0px;
+}
+
+.color_selector .color_swatch {
+    display: flex;
+}
+
+.color_selector .color_swatch .color1 {
+    background-color: aqua;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .color_swatch .color2 {
+    background-color: aqua;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .color_swatch .color3 {
+    background-color: aqua;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .color_swatch .color4 {
+    background-color: aqua;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .color_swatch .color5 {
+    background-color: aqua;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .skuNumber {
+    font-size: 13px;
+    font-style: italic;
+    margin: 20px 0px 0px 0px;
+}
+
+.zip {
+    font-size: 13px;
+    grid-area: zip;
+    /* border: 2px solid brown; */
+}
+
+.qtybtn_card {
+    grid-area: qty;
+    /* border: 2px solid red; */
+}
+
+.qtybtn_card .qtybtn {
+    display: flex;
+}
+
+.qtybtn_card .qtybtn .qtybtn_qty {
+    display: flex;
+    /* border: 1px solid rgb(180, 180, 180); */
+    width: 88px;
+}
+
+.qtybtn_card .qtybtn_dec, .qtybtn_inc {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
-    border: 1px solid black;
-    border-radius: 50%;
-    width: 5vw;
-    height: 5vh;
+    font-size: 1.5rem;
+    background-color: rgb(220, 220, 220);
+    border: 1px solid rgb(180, 180, 180);
+    width: 1.5em;
+    height: 1.5em;
 }
 
-.grid-item-4 {
-    grid-area: zip;
-    border: 2px solid brown;
+.qtybtn_card .addToCart {
+    font-size: 13px;
+    margin-left: 5px;
+    padding: 0px 20px;
 }
 
-.grid-item-5 {
-    grid-area: qty;
-    border: 2px solid red;
+.qtybtn_card .assembly {
+    font-size: 13px;
+    font-style: italic;
+    padding-top: 10px;
 }
 
-.grid-item-6 {
+.ship {
     grid-area: ship;
-    border: 2px solid gold;
+    /* border: 2px solid gold; */
+}
+
+.ship p {
+    background-color: rgb(220, 220, 220);
+    /* border: 1px solid rgb(180, 180, 180); */
+    padding: 1em;
+}
+
+.details {
+    grid-area: dtl;
+    /* border: 2px solid greenyellow; */
 }
