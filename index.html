@@ -5,33 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
     <title>Scandinavian Designs</title>
 </head>
 <body>
     
     <div class="grid-container">
         
-        <div class="grid-item grid-item-1">
+        <div class="img_hero">
             <img class="img-fluid" src="assets/default.webp" alt="Luxury Leather Sofa" />
         </div>
         
-        <div class="grid-item grid-item-2">
-            <h1>Leather Sofa</h1>
+        <div class="product_titlecard">
+            <p class="productName">LEATHER SOFA</p>
             <hr>
-            <p>$799.00</p>
+            <p class="productPrice">$799.00</p>
         </div>
         
-        <div class="grid-item grid-item-3">
-            <div class="color">
-                <p>Color</p>
+        <div class="color_selector">
+            <p class="colorSelectText">Color</p>
+            <div class="color_swatch">
+                <div class="color1"></div>
+                <div class="color2"></div>
+                <div class="color3"></div>
+                <div class="color4"></div>
+                <div class="color5"></div>
+            </div>
+            <div class="skuNumber">
+                <p>sku# here</p>
+            </div>
+            <hr>
+        </div>
+        
+        <div class="zip">
+            <p>Please enter your delivery zip code to check for availability.</p>
+            <form>
+                <label>
+                    Ship to:
+                </label>
+                <input placeholder="Enter Zip Code">
+            </form>
+        </div>
+        
+        <div class="qtybtn_card">
+            <div class="qtybtn">
+                <div class="qtybtn_dec">-</div>
+                <div class="qtybtn_qty">
+                    <input type="number" placeholder="0" />
+                </div>
+                <div class="qtybtn_inc">+</div>
+                <button class="addToCart">ADD TO CART</button>
+            </div>
+
+            <div class="assembly">
+                <p>Some assembly may be required.</p>
             </div>
         </div>
         
-        <div class="grid-item grid-item-4">grid-item-4</div>
+        <div class="ship">
+            <p>*Shipping and delivery times may vary from estimates provided due to shipping method, location, product availability, and high demand.</p>
+        </div>
         
-        <div class="grid-item grid-item-5">grid-item-5</div>
-        
-        <div class="grid-item grid-item-6">grid-item-6</div>
+        <div class="details">details go here</div>
 
     </div>
     
