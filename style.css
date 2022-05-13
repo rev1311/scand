@@ -7,6 +7,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+    color: #4f4f4f;
 }
 
 .break {
@@ -18,7 +19,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(1fr, auto);
-    gap: 0.2em;
+    gap: 0.5em;
     grid-template-areas: 
         'img img img price'
         'img img img color'
@@ -28,10 +29,33 @@ body {
         'dtl dtl dtl dtl'
         ;
     line-height: 1.6;
-    max-width: 70vw;
-    margin: 10vh auto;
+    max-width: 1000px;
+    margin: 2vh auto;
     /* border: 2px solid black; */
 }
+
+@media only screen and (max-width: 1000px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(1fr, 5fr);
+        gap: 0.2em;
+        grid-template-areas: 
+            'img'
+            'img'
+            'img'
+            'img'
+            'img'
+            'dtl'
+            'panel'
+            'price'
+            'color'
+            'zip'
+            'qty'
+            'ship'
+            ;
+        max-width: 80vw;    
+    }
+  }
 
 .img_hero {
     display: flex;
@@ -39,11 +63,19 @@ body {
     justify-content: center;
     align-items: center;
     /* border: 2px solid aqua; */
+    min-width: 600px;
 }
 
 .img_hero .img-fluid {
-    max-width: 80%;
+    max-width: 100%;
+    max-height: 550px;
+}
+
+.panel {
+    min-width: 350px;
     height: auto;
+    /* border: 2px solid blue; */
+
 }
 
 .product_titlecard {
@@ -69,40 +101,37 @@ body {
 }
 
 .color_selector .colorSelectText {
+    color: rgb(180, 180, 180);
     font-size: 13px;
     margin: 6.5px 0px;
 }
 
-.color_selector .color_swatch {
+.color_selector .color_swatch_panel {
     display: flex;
 }
 
-.color_selector .color_swatch .color1 {
+.color_selector .color_swatch, .color_swatch:visited {
+    outline: 2px solid rgb(255, 255, 255);
+    outline-offset: 2px;
+    cursor: pointer;
+    transition: ease .5s;
+}
+
+.color_selector .color_swatch:hover, .color_swatch:active {
+    outline: 2px solid blue;
+
+}
+
+.color_selector .color_swatch_panel .color1 {
     background-color: aqua;
-    border: 2px solid black;
+    border: 2px solid none;
     border-radius: 50%;
     margin-right: 1vw;
     width: 3.5em;
     height: 3.5em;
 }
 
-.color_selector .color_swatch .color2 {
-    background-color: aqua;
-    border-radius: 50%;
-    margin-right: 1vw;
-    width: 3.5em;
-    height: 3.5em;
-}
-
-.color_selector .color_swatch .color3 {
-    background-color: aqua;
-    border-radius: 50%;
-    margin-right: 1vw;
-    width: 3.5em;
-    height: 3.5em;
-}
-
-.color_selector .color_swatch .color4 {
+.color_selector .color_swatch_panel .color2 {
     background-color: aqua;
     border-radius: 50%;
     margin-right: 1vw;
@@ -110,7 +139,23 @@ body {
     height: 3.5em;
 }
 
-.color_selector .color_swatch .color5 {
+.color_selector .color_swatch_panel .color3 {
+    background-color: aqua;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .color_swatch_panel .color4 {
+    background-color: aqua;
+    border-radius: 50%;
+    margin-right: 1vw;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.color_selector .color_swatch_panel .color5 {
     background-color: aqua;
     border-radius: 50%;
     margin-right: 1vw;
@@ -127,11 +172,33 @@ body {
 .zip {
     font-size: 13px;
     grid-area: zip;
+    margin-top: 1em;
     /* border: 2px solid brown; */
+}
+
+.zip p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.zip input {
+    border-style: none none solid;
+    border-width: 1px;
+    margin: 0 0 1em 1em;
+}
+
+.zip input:hover {
+    border-color: blue;
+}
+
+.zip input:focus {
+    border-color: blue;
+    outline: none;
 }
 
 .qtybtn_card {
     grid-area: qty;
+    margin-top: 10px;
     /* border: 2px solid red; */
 }
 
@@ -141,25 +208,44 @@ body {
 
 .qtybtn_card .qtybtn .qtybtn_qty {
     display: flex;
-    /* border: 1px solid rgb(180, 180, 180); */
-    width: 88px;
+    border: 1px solid rgb(180, 180, 180);
+    text-align: center;
+    width: 80px;
+}
+
+.qtybtn_card .qtybtn .qtybtn_qty input {
+    appearance: none;
+    border: 1px solid rgb(180, 180, 180);
+    text-align: center;
+    width: 80px;
 }
 
 .qtybtn_card .qtybtn_dec, .qtybtn_inc {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     font-size: 1.5rem;
     background-color: rgb(220, 220, 220);
     border: 1px solid rgb(180, 180, 180);
-    width: 1.5em;
-    height: 1.5em;
+    width: 40px;
+    height: 40px;
 }
 
-.qtybtn_card .addToCart {
+.qtybtn_card .addToCart, .addToCart:visited {
+    background-color: rgb(0, 0, 155);
+    color: aliceblue;
+    cursor: pointer;
+    border: none;
     font-size: 13px;
     margin-left: 5px;
     padding: 0px 20px;
+    transition: ease-in .2s;
+}
+
+.qtybtn_card .addToCart:hover {
+    background-color: rgb(0, 0, 255);
+
 }
 
 .qtybtn_card .assembly {
@@ -175,7 +261,8 @@ body {
 
 .ship p {
     background-color: rgb(220, 220, 220);
-    /* border: 1px solid rgb(180, 180, 180); */
+    border: 1px solid rgb(180, 180, 180);
+    margin-top: 10px;
     padding: 1em;
 }
 
