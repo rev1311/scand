@@ -15,26 +15,26 @@
     <div class="grid-container">
         
         <div class="img_hero">
-            <img class="img-fluid" src="assets/default.webp" alt="Luxury Leather Sofa" />
+            <img class="img-fluid" id="imgsrc" src="assets/default.webp" alt="Luxury Leather Sofa" />
         </div>
         
         <div class="panel">
             <div class="product_titlecard">
-                <p class="productName">LEATHER SOFA</p>
+                <p class="productName" id="productName">LEATHER SOFA</p>
                 <hr>
-                <p class="productPrice">$799.00</p>
+                <p class="productPrice" id="productPrice">$799.00</p>
             </div>
             
             <div class="color_selector">
-                <p class="colorSelectText">COLOR</p>
-                <div class="color_swatch_panel">
+                <p class="colorSelectText" id="colorSelectText">COLOR</p>
+                <div class="color_swatch_panel" id="color_swatch_panel">
                     <span class="color_swatch color1"></span>
                     <span class="color_swatch color2"></span>
                     <span class="color_swatch color3"></span>
                     <span class="color_swatch color4"></span>
                     <span class="color_swatch color5"></span>
                 </div>
-                <div class="skuNumber">
+                <div class="skuNumber" id="skuNumber">
                     <p>sku# here</p>
                 </div>
                 <hr>
@@ -46,7 +46,7 @@
                     <label name="shipTo">
                         Ship to:
                     </label>
-                    <input  name="shipTo" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]" placeholder="Enter Zip Code">
+                    <input name="shipTo" id="shipTo" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]" placeholder="Enter Zip Code">
                 </form>
             </div>
             
@@ -60,7 +60,7 @@
                     <button class="addToCart">ADD TO CART</button>
                 </div>
 
-                <div class="assembly">
+                <div class="assembly" id="assembly">
                     <p>Some assembly may be required.</p>
                 </div>
             </div>
@@ -70,9 +70,9 @@
             </div>
         </div>
         
-        <div class="details">details go here</div>
+        <div class="details" id="details">details go here</div>
     </div>
     
-    <script type="text/javascript" src="script.js"></script>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
