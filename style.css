@@ -32,7 +32,7 @@ input::-webkit-inner-spin-button {
         ;
     line-height: 1.6;
     max-width: 1000px;
-    margin: 2vh auto;
+    margin: 5vh auto;
     /* border: 2px solid black; */
 }
 
@@ -189,7 +189,6 @@ hr {
 
 .zip p {
     margin-top: 2em;
-    margin-bottom: 1em;
 }
 
 .zip input {
