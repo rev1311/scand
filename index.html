@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik:wght@300&display=swap" rel="stylesheet">
     <title>Scandinavian Designs</title>
 </head>
 <body>
@@ -26,9 +26,9 @@
             </div>
             
             <div class="color_selector">
-                <p class="colorSelectText">Color</p>
+                <p class="colorSelectText">COLOR</p>
                 <div class="color_swatch_panel">
-                    <span class="color_swatch color1" aria-label="color1"></span>
+                    <span class="color_swatch color1"></span>
                     <span class="color_swatch color2"></span>
                     <span class="color_swatch color3"></span>
                     <span class="color_swatch color4"></span>
@@ -42,11 +42,12 @@
             
             <div class="zip">
                 <p>Please enter your delivery zip code to check for availability.</p>
-                <form>
-                    <label>
+                <hr>
+                <form name="shipTo">
+                    <label name="shipTo">
                         Ship to:
                     </label>
-                    <input type="text" inputmode="numeric" placeholder="Enter Zip Code">
+                    <input  name="shipTo" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]" placeholder="Enter Zip Code">
                 </form>
             </div>
             
