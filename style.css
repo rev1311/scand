@@ -10,10 +10,12 @@ body {
     color: #4f4f4f;
 }
 
-.break {
-    flex-basis: 100%;
-    height: 0;
-}
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+} */
 
 .grid-container {
     display: grid;
@@ -67,19 +69,25 @@ body {
 }
 
 .img_hero .img-fluid {
-    max-width: 100%;
+    max-width: 90%;
     max-height: 550px;
 }
 
 .panel {
     min-width: 350px;
     height: auto;
+    justify-content: center;
+    align-items: center;
     /* border: 2px solid blue; */
 
 }
 
+hr {
+    border-top: rgb(180, 180, 180);
+}
+
 .product_titlecard {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Rubik', sans-serif;
     grid-area: price;
     /* border: 2px solid blue; */
 }
@@ -98,12 +106,14 @@ body {
     grid-area: color;
     /* border: 2px solid blueviolet; */
     align-items: center;
+    margin-top: 1em;
 }
 
 .color_selector .colorSelectText {
     color: rgb(180, 180, 180);
+    font-family: 'Rubik', 'sans serif';
     font-size: 13px;
-    margin: 6.5px 0px;
+    margin: 20px 0px 10px;
 }
 
 .color_selector .color_swatch_panel {
@@ -112,18 +122,19 @@ body {
 
 .color_selector .color_swatch, .color_swatch:visited {
     outline: 2px solid rgb(255, 255, 255);
-    outline-offset: 2px;
+    outline-offset: 3px;
+    opacity: 0.25;
     cursor: pointer;
-    transition: ease .5s;
+    transition: ease 0.65s;
 }
 
 .color_selector .color_swatch:hover, .color_swatch:active {
-    outline: 2px solid blue;
-
+    outline: 2px solid #4f4f4f;
+    opacity: 1;
 }
 
 .color_selector .color_swatch_panel .color1 {
-    background-color: aqua;
+    background-color: #A020F0;
     border: 2px solid none;
     border-radius: 50%;
     margin-right: 1vw;
@@ -132,7 +143,7 @@ body {
 }
 
 .color_selector .color_swatch_panel .color2 {
-    background-color: aqua;
+    background-color: #26580F;
     border-radius: 50%;
     margin-right: 1vw;
     width: 3.5em;
@@ -140,7 +151,7 @@ body {
 }
 
 .color_selector .color_swatch_panel .color3 {
-    background-color: aqua;
+    background-color: #964B00;
     border-radius: 50%;
     margin-right: 1vw;
     width: 3.5em;
@@ -148,7 +159,7 @@ body {
 }
 
 .color_selector .color_swatch_panel .color4 {
-    background-color: aqua;
+    background-color: #800000;
     border-radius: 50%;
     margin-right: 1vw;
     width: 3.5em;
@@ -156,7 +167,7 @@ body {
 }
 
 .color_selector .color_swatch_panel .color5 {
-    background-color: aqua;
+    background-color: #000000;
     border-radius: 50%;
     margin-right: 1vw;
     width: 3.5em;
@@ -177,14 +188,18 @@ body {
 }
 
 .zip p {
-    margin-top: 1em;
+    margin-top: 2em;
     margin-bottom: 1em;
 }
 
 .zip input {
     border-style: none none solid;
     border-width: 1px;
-    margin: 0 0 1em 1em;
+    margin: 1em 0 1em 1em;
+}
+
+.zip input::placeholder {
+    color: rgb(180, 180, 180);
 }
 
 .zip input:hover {
@@ -198,7 +213,7 @@ body {
 
 .qtybtn_card {
     grid-area: qty;
-    margin-top: 10px;
+    margin-top: 20px;
     /* border: 2px solid red; */
 }
 
@@ -208,7 +223,7 @@ body {
 
 .qtybtn_card .qtybtn .qtybtn_qty {
     display: flex;
-    border: 1px solid rgb(180, 180, 180);
+    /* border: 1px solid rgb(180, 180, 180); */
     text-align: center;
     width: 80px;
 }
@@ -217,7 +232,11 @@ body {
     appearance: none;
     border: 1px solid rgb(180, 180, 180);
     text-align: center;
-    width: 80px;
+    width: 88px;
+}
+
+.qtybtn_card .qtybtn .qtybtn_qty input:focus {
+    outline: none;
 }
 
 .qtybtn_card .qtybtn_dec, .qtybtn_inc {
@@ -239,7 +258,7 @@ body {
     border: none;
     font-size: 13px;
     margin-left: 5px;
-    padding: 0px 20px;
+    padding: 0px 45px;
     transition: ease-in .2s;
 }
 
@@ -256,6 +275,7 @@ body {
 
 .ship {
     grid-area: ship;
+    margin-top: 25px;
     /* border: 2px solid gold; */
 }
 
