@@ -90,20 +90,16 @@ const jsonData = {
 	]
 };
 
-// API call using Fetch **
-
-// const apiURL = ''
-// const getProductInfoFetch = async () => {
-//     const response = await fetch(apiURL)
-//     const jsonData = await response.json()
-//     console.log(jsonData)
-// }
-
-// getProductInfoFetch();
+// API call using Fetch     ** unused/untested **
+const apiURL = 'placeholder.url/products/Leather+Sofa'
+const getProductInfoFetch = async () => {
+    const response = await fetch(apiURL)
+    const jsonData = await response.json()
+    console.log(jsonData)
+}
 
 
-
-
+// dynamically builds swatches from data
 const buildVariantSwatches = () => {
     jsonData.variants.map(item => {
         const span = document.createElement('span')
@@ -119,26 +115,38 @@ window.onload = () => {
     buildVariantSwatches();
 }
 
-colorSwatchPanel.addEventListener("click", function(e) {
-    e.preventDefault();
-    const element = e.target
-    console.log(element.id)
 
-    jsonData.variants.filter(item => {
-       if(item.sku === element.id){
-            price.innerText=`$${item.price}`;
-            colorText.innerText=`COLOR - ${item.color.toUpperCase()}`;
-            sku.innerText=`${item.title} ${item.sku}`;
-            item.assembly
-                ? assembly.innerText='Some assembly may be required.'
-                : assembly.innerText='';
+// handles updating data on page
+const handlePageDataUpdate = (element) => {
+	jsonData.variants.filter(item => {
+		if(item.sku === element.id){
+			// set price
+			price.innerText=`$${item.price}`;
+			//set color text
+			colorText.innerText=`COLOR - ${item.color.toUpperCase()}`;
+			// set title and sku number
+			sku.innerText=`${item.title} ${item.sku}`;
+			// verify assembly requirement -> display req text
+			item.assembly
+				? assembly.innerText='Some assembly may be required.'
+				: assembly.innerText='';
+			// clear details section -> generate new list of details
 			details.innerText=''
 			item.details.forEach(dtl => {
 				const deet = `<li>${dtl}</li>`;
 				details.insertAdjacentHTML('beforeend', deet);
 			});
-       }
-    })
+		}
+	})
+}
+
+
+// adds event listener to swatches
+colorSwatchPanel.addEventListener("click", function(e) {
+    e.preventDefault();
+    const element = e.target;
+
+	handlePageDataUpdate(element);
 })
 
 
