@@ -108,11 +108,11 @@ const buildVariantSwatches = () => {
     jsonData.variants.map(item => {
         const span = document.createElement('span')
         
-        span.classList.add('color_swatch')
-        span.setAttribute('id', item.sku)
-        span.style.backgroundColor=item.colorHex
-        colorSwatchPanel.append(span)
-    })
+        span.classList.add('color_swatch');
+        span.setAttribute('id', item.sku);
+        span.style.backgroundColor=item.colorHex;
+        colorSwatchPanel.append(span);
+    });
 }
 
 window.onload = () => {
@@ -132,9 +132,11 @@ colorSwatchPanel.addEventListener("click", function(e) {
             item.assembly
                 ? assembly.innerText='Some assembly may be required.'
                 : assembly.innerText='';
-            item.details.map(dtl => {
-                details.innerHTML=`<p>${dtl}</p>`
-            });
+			details.innerText=''
+			item.details.forEach(dtl => {
+				const deet = `<li>${dtl}</li>`;
+				details.insertAdjacentHTML('beforeend', deet);
+			});
        }
     })
 })
