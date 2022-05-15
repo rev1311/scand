@@ -253,3 +253,9 @@ hr {
     font-size: 13px;
     font-family: 'Rubik', 'sans serif';
 }
+
+.details ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
