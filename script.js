@@ -115,6 +115,7 @@ const buildVariantSwatches = () => {
         span.style.backgroundColor=item.colorHex;
         colorSwatchPanel.append(span);
     });
+	handlePageDataUpdate(colorSwatchPanel.firstChild);
 };
 
 window.onload = () => {
