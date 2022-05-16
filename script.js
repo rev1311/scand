@@ -231,29 +231,18 @@ form.addEventListener('submit', (e => {
 }));
 
 
-// increments or decrements quantity
-const qtyCounter = (element) => {
-	if (element.innerText === '+') {
-		qty.value < qty.max
-			? qty.value++
-			: qty.value = qty.max
-	} else {
-		if(element.innerText === '-') {
-			qty.value > 0 
-				? qty.value--
-				: qty.value=0
-		} else {
-			return
-		};
-	};
+// increments quantity
+const qtyCounterAdd = (inc) => {
+	let count = parseInt(qty.value) + parseInt(inc)
+	qty.value = qty.max < count ? qty.max : count
 };
 
-// adds event listener to increment/decrement buttons
-qtybtn.addEventListener('click', (e => {
-	e.preventDefault();
-	const element = e.target;
+// decrements quantity
+const qtyCounterSub = (dec) => {
+	let count = parseInt(qty.value) + parseInt(dec)
+	qty.value = 0 > count ? 0 : count
+};
 
-	qtyCounter(element)
-}));
+
 
 
