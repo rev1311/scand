@@ -233,20 +233,18 @@ form.addEventListener('submit', (e => {
 
 // increments or decrements quantity
 const qtyCounter = (element) => {
-	if(element.innerText === '-') {
-		if(qty.value > 0) {
-			qty.value--;
-		} else {
-			qty.value = 0;
-		}
-	} else if (element.innerText === '+') {
-		if(qty.value < qty.max) {
-			qty.value++;
-		} else {
-			qty.value = qty.max;
-		};
+	if (element.innerText === '+') {
+		qty.value < qty.max
+			? qty.value++
+			: qty.value = qty.max
 	} else {
-		return
+		if(element.innerText === '-') {
+			qty.value > 0 
+				? qty.value--
+				: qty.value=0
+		} else {
+			return
+		};
 	};
 };
 
