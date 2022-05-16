@@ -7,6 +7,7 @@ const shipTo = document.querySelector('#shipTo')
 const form = document.querySelector('form')
 const qtybtn = document.querySelector('#qtybtn')
 const qty = document.querySelector('#qtybtn_qty')
+const addToCart = document.querySelector('#addToCart')
 const assembly = document.querySelector('#assembly')
 const details = document.querySelector('#details')
 const activeSwatch = document.querySelector('.color_swatch color_swatch_active')
@@ -129,6 +130,16 @@ const setActiveSwatch = (element) => {
 };
 
 
+// sets disabled status for add to cart button
+const toggleAddToCart = () => {
+	if(qty.max > 0) {
+		addToCart.classList.remove('disabled')
+	} else {
+		addToCart.classList.add('disabled')
+	}
+}
+
+
 // verifies warehouse/inventory by zip code
 const checkWarehouse = (zip, item) => {
 	if(zip >= 90000 && zip <= 96699) {
@@ -167,7 +178,10 @@ const handlePageDataUpdate = (element) => {
 				const deet = `<li>${dtl}</li>`;
 				details.insertAdjacentHTML('beforeend', deet);
 			});
+			// checks which warehouse to use
 			checkWarehouse(shipTo.placeholder, item);
+			// toggles add to cart button status
+			toggleAddToCart();
 		} else {
 			return
 		};
@@ -218,20 +232,20 @@ form.addEventListener('submit', (e => {
 const qtyCounter = (element) => {
 	if(element.innerText === '-') {
 		if(qty.value > 0) {
-			qty.value--
+			qty.value--;
 		} else {
-			qty.value = 0
+			qty.value = 0;
 		}
 	} else if (element.innerText === '+') {
 		if(qty.value < qty.max) {
-			qty.value++
+			qty.value++;
 		} else {
-			qty.value = qty.max
+			qty.value = qty.max;
 		};
 	} else {
 		return
-	}
-}
+	};
+};
 
 // adds event listener to increment/decrement buttons
 qtybtn.addEventListener('click', (e => {
