@@ -175,7 +175,6 @@ hr {
 
 .zip .setzip, .setzip:visited {
     background-color: rgb(220, 220, 220);
-    /* color: aliceblue; */
     padding: 5px 20px;
     transition: ease-in 0.2s;
     border: none;
