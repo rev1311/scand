@@ -34,21 +34,22 @@
             
             <div class="zip">
                 <p>Please enter your delivery zip code to check for availability.</p>
-                <form name="shipTo">
+                <form name="shipTo" autocomplete="off">
                     <label name="shipTo">
                         Ship to:
                     </label>
-                    <input name="shipTo" id="shipTo" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]" placeholder="Enter Zip Code">
+                    <input name="shipTo" id="shipTo" type="text" oninput="handleZipValidator(event)" maxlength="5" placeholder="Enter Zip Code" pattern="^[0-9]{5}$" required>
+                    <button type="submit">Set Zip</button>
                 </form>
             </div>
             
             <div class="qtybtn_card">
-                <div class="qtybtn">
-                    <span class="qtybtn_dec" onClick="dec(event, this)">-</span>
+                <div class="qtybtn" id="qtybtn">
+                    <span class="qtybtn_dec" id="qtybtn_dec">-</span>
                     <span class="qtybtn_qty">
-                        <input type="text" inputmode="numeric" placeholder="0" min="1"/>
+                        <input type="text" id="qtybtn_qty" inputmode="numeric" placeholder="0" min="0" max="0" required/>
                     </span>
-                    <span class="qtybtn_inc" onClick="inc(event, this)">+</span>
+                    <span class="qtybtn_inc" id="qtybtn_inc">+</span>
                     <button class="addToCart">ADD TO CART</button>
                 </div>
 
