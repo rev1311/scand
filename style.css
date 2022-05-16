@@ -173,6 +173,20 @@ hr {
     outline: none;
 }
 
+.zip .setzip, .setzip:visited {
+    background-color: rgb(220, 220, 220);
+    /* color: aliceblue; */
+    padding: 5px 20px;
+    transition: ease-in 0.2s;
+    border: none;
+    cursor: pointer;
+    border: none;
+}
+
+.zip .setzip:hover {
+    background-color: rgb(240, 240, 240);
+}
+
 .qtybtn_card {
     grid-area: qty;
     margin-top: 20px;
@@ -213,7 +227,7 @@ hr {
 }
 
 .qtybtn_card .addToCart, .addToCart:visited {
-    background-color: rgb(100, 100, 220);
+    background-color: rgb(50, 50, 110);
     color: aliceblue;
     cursor: pointer;
     border: none;
@@ -224,7 +238,7 @@ hr {
 }
 
 .qtybtn_card .addToCart:hover {
-    background-color: rgb(50, 50, 110);
+    background-color: rgb(100, 100, 220);
     
 }
 
