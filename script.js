@@ -3,8 +3,13 @@ const price = document.querySelector('#productPrice')
 const colorText = document.querySelector('#colorSelectText')
 const colorSwatchPanel = document.querySelector('#color_swatch_panel')
 const sku = document.querySelector('#skuNumber')
+const shipTo = document.querySelector('#shipTo')
+const form = document.querySelector('form')
+const qtybtn = document.querySelector('#qtybtn')
+const qty = document.querySelector('#qtybtn_qty')
 const assembly = document.querySelector('#assembly')
 const details = document.querySelector('#details')
+const activeSwatch = document.querySelector('.color_swatch color_swatch_active')
 
 const jsonData = {
 	"productName": "Leather Sofa",
@@ -96,7 +101,7 @@ const getProductInfoFetch = async () => {
     const response = await fetch(apiURL)
     const jsonData = await response.json()
     console.log(jsonData)
-}
+};
 
 
 // dynamically builds swatches from data
@@ -109,23 +114,49 @@ const buildVariantSwatches = () => {
         span.style.backgroundColor=item.colorHex;
         colorSwatchPanel.append(span);
     });
-}
+};
 
 window.onload = () => {
     buildVariantSwatches();
-}
+};
+
+
+// sets active swatch -> clears prev active swatch
+const setActiveSwatch = (element) => {
+	const elem = [...element.parentElement.children];
+	elem.forEach(swatch => swatch.classList.remove('color_swatch_active'));
+	element.classList.add('color_swatch_active');
+};
+
+
+// verifies warehouse/inventory by zip code
+const checkWarehouse = (zip, item) => {
+	if(zip >= 90000 && zip <= 96699) {
+		qty.max=item.inventory.caliWarehouse
+	} else if(zip.length > 5){
+		return qty.max='0'
+	} else {
+		qty.max=item.inventory.otherWarehouse
+	};
+};
 
 
 // handles updating data on page
 const handlePageDataUpdate = (element) => {
 	jsonData.variants.filter(item => {
 		if(item.sku === element.id){
+			//set active swatch *fixes bug that missed clicks would break swatches*
+			setActiveSwatch(element);
+			//set product name/title
+			productName.innerText = `${item.title.toUpperCase()} LEATHER SOFA`;
 			// set price
 			price.innerText=`$${item.price}`;
 			//set color text
 			colorText.innerText=`COLOR - ${item.color.toUpperCase()}`;
 			// set title and sku number
-			sku.innerText=`${item.title} ${item.sku}`;
+			sku.innerText=item.sku;
+			//set quantity to 0 *fixes bug that allowed bypassing max qty*
+			qty.value=0;
 			// verify assembly requirement -> display req text
 			item.assembly
 				? assembly.innerText='Some assembly may be required.'
@@ -136,9 +167,12 @@ const handlePageDataUpdate = (element) => {
 				const deet = `<li>${dtl}</li>`;
 				details.insertAdjacentHTML('beforeend', deet);
 			});
-		}
+			checkWarehouse(shipTo.placeholder, item);
+		} else {
+			return
+		};
 	})
-}
+};
 
 
 // adds event listener to swatches
@@ -147,6 +181,64 @@ colorSwatchPanel.addEventListener("click", function(e) {
     const element = e.target;
 
 	handlePageDataUpdate(element);
-})
+});
+
+
+// zip code input validator (need to remove spacebar option)
+const handleZipValidator = (e) => {
+	if(e.data >= 0 && e.data <= 9) {
+	} else {
+		shipTo.value = shipTo.value.slice(0, -1);
+	};
+};
+
+
+// creates a pass through to update inventory if active swatch when zip is submitted
+const updatePageDataZip = () => {
+	const element = document.getElementById(`${sku.innerText}`)
+	if(sku.innerText !== '') {
+		handlePageDataUpdate(element)
+	} else {
+		return
+	};
+};
+
+
+// adds event listener to form to stop page reload
+form.addEventListener('submit', (e => {
+	e.preventDefault();
+	shipTo.placeholder = shipTo.value;
+	shipTo.value = '';
+
+	updatePageDataZip();
+}));
+
+
+// increments or decrements quantity
+const qtyCounter = (element) => {
+	if(element.innerText === '-') {
+		if(qty.value > 0) {
+			qty.value--
+		} else {
+			qty.value = 0
+		}
+	} else if (element.innerText === '+') {
+		if(qty.value < qty.max) {
+			qty.value++
+		} else {
+			qty.value = qty.max
+		};
+	} else {
+		return
+	}
+}
+
+// adds event listener to increment/decrement buttons
+qtybtn.addEventListener('click', (e => {
+	e.preventDefault();
+	const element = e.target;
+
+	qtyCounter(element)
+}));
 
 
