@@ -45,11 +45,11 @@
             
             <div class="qtybtn_card">
                 <div class="qtybtn" id="qtybtn">
-                    <span class="qtybtn_dec" id="qtybtn_dec">-</span>
+                    <button class="qtybtn_dec" id="qtybtn_dec" value="-1" onclick="qtyCounterSub(this.value)">-</button>
                     <span class="qtybtn_qty">
                         <input type="text" id="qtybtn_qty" inputmode="numeric" onkeydown="return false" placeholder="0" min="0" max="0"/>
                     </span>
-                    <span class="qtybtn_inc" id="qtybtn_inc">+</span>
+                    <button class="qtybtn_inc" id="qtybtn_inc" value="1" onclick="qtyCounterAdd(this.value)">+</button>
                     <button class="addToCart" id="addToCart">ADD TO CART</button>
                 </div>
 
