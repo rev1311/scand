@@ -39,7 +39,7 @@
                         Ship to:
                     </label>
                     <input name="shipTo" id="shipTo" type="text" oninput="handleZipValidator(event)" maxlength="5" placeholder="Enter Zip Code" pattern="^[0-9]{5}$" required>
-                    <button type="submit">Set Zip</button>
+                    <button type="submit" class="setzip" id="setzip">Set Zip</button>
                 </form>
             </div>
             
@@ -47,10 +47,10 @@
                 <div class="qtybtn" id="qtybtn">
                     <span class="qtybtn_dec" id="qtybtn_dec">-</span>
                     <span class="qtybtn_qty">
-                        <input type="text" id="qtybtn_qty" inputmode="numeric" placeholder="0" min="0" max="0" required/>
+                        <input type="text" id="qtybtn_qty" inputmode="numeric" onkeydown="return false" placeholder="0" min="0" max="0"/>
                     </span>
                     <span class="qtybtn_inc" id="qtybtn_inc">+</span>
-                    <button class="addToCart">ADD TO CART</button>
+                    <button class="addToCart" id="addToCart">ADD TO CART</button>
                 </div>
 
                 <div class="assembly" id="assembly"></div>
