@@ -132,10 +132,12 @@ const setActiveSwatch = (element) => {
 
 // sets disabled status for add to cart button
 const toggleAddToCart = () => {
-	if(qty.max > 0) {
-		addToCart.classList.remove('disabled')
-	} else {
+	if(qty.max == 0) {
 		addToCart.classList.add('disabled')
+		addToCart.classList.remove('addToCart')
+	} else {
+		addToCart.classList.remove('disabled')
+		addToCart.classList.add('addToCart')
 	}
 }
 
